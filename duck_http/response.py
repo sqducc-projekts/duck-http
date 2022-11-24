@@ -14,3 +14,14 @@ class Response:
     """
     self.status = status
     self.headers = headers
+
+  def convertToResponseString(self) -> str:
+    """This function converts self into an HTTP response string
+
+    Returns:
+      str: The HTTP response string that was generated
+    """
+    headersAsStrings: str = ""
+    for header in self.headers:
+      headersAsStrings += f"{header}: {self.headers[header]}\n"
+    return f"HTTP/1.1 {self.status.code} {self.status.text}\n{headersAsStrings}\nhello"
