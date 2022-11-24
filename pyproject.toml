@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "duck-http"
-version = "1.0.0"
+version = "0.0.1"
 authors = [
     { name="linux-duccy" }
 ]
