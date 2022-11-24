@@ -1,14 +1,28 @@
+__all__ = [
+  "Status"
+]
+
 class Status:
   def __init__(
     self,
     code: int,
     text: str
   ) -> None:
-    """The Status class is used for defining the status code and text of a response
+    """
+    This class contains Status code and Status text of a response
 
     Args:
-      code (int): The status code
-      text (str): The status text
+      code (int): Status code
+      text (str): Status text
     """
     self.code = code
     self.text = text
+
+  def __str__(self) -> str:
+    """
+    HTTP Response Status string
+
+    Returns:
+      str: HTTP Response Status string so formed
+    """
+    return str(self.code) + " " + str(self.text)

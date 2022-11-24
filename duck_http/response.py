@@ -1,30 +1,36 @@
 from .status import Status
 
+__all__ = [
+  "Response"
+]
+
 class Response:
   def __init__(
     self,
     status: Status,
-    headers: dict,
-    body: str
+    body: str,
+    headers: dict = {}
   ) -> None:
-    """The Response class is used to make an HTTP response structure
+    """
+    The Response class is used to make an HTTP response structure
 
     Args:
-      status (Status): This is a status object to define the status code and status text for the response
-      headers (dict): This is a dictionary of headers and their values
-      body (str): This is the response body
+      status (Status): Status class
+      body (str): Response body
+      headers (dict, optional): Headers. Defaults to {}.
     """
     self.status = status
-    self.headers = headers
     self.body = body
+    self.headers = headers
 
-  def convertToResponseString(self) -> str:
-    """This function converts self into an HTTP response string
+  def __str__(self) -> str:
+    """
+    HTTP Response string
 
     Returns:
-      str: The HTTP response string that was generated
+      str: HTTP Response string so formed
     """
-    headersAsStrings: str = ""
+    headerString = ""
     for header in self.headers:
-      headersAsStrings += f"{header}: {self.headers[header]}\n"
-    return f"HTTP/1.1 {self.status.code} {self.status.text}\n{headersAsStrings}\n{self.body}"
+      headerString += str(header) + ": " + str(self.headers[header]) + "\n"
+    return "HTTP/1.1 " + str(self.status) + "\n" + headerString + "\n" + str(self.body)
