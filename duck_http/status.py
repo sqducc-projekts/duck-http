@@ -15,8 +15,8 @@ class Status:
       code (int): Status code
       text (str): Status text
     """
-    self.code = code
-    self.text = text
+    self.code = int(code)
+    self.text = str(text)
 
   def __str__(self) -> str:
     """
