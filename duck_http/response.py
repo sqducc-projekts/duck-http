@@ -19,9 +19,15 @@ class Response:
       body (str): Response body
       headers (dict, optional): Headers. Defaults to {}.
     """
-    self.status = status
-    self.body = body
-    self.headers = headers
+    if type(status) != Status:
+      raise TypeError("Status must be of type 'duck_http.Status'")
+    else:
+      self.status = status
+    self.body = str(body)
+    if type(headers) != dict:
+      raise TypeError("Headers must be of type 'dict'")
+    else:
+      self.headers = headers
 
   def __str__(self) -> str:
     """
