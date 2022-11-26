@@ -15,7 +15,10 @@ class Status:
       code (int): Status code
       text (str): Status text
     """
-    self.code = int(code)
+    if type(code) != int:
+      raise TypeError("Status code must be of type 'int'")
+    else:
+      self.code = code
     self.text = str(text)
 
   def __str__(self) -> str:
