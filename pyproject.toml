@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "duck-http"
+description = "duck-http is a high performance, barebones, made-from-scratch, zero-dependency HTTP framework for Python"
 version = "0.0.1"
 authors = [
     { name="linux-duccy" }
